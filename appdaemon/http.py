@@ -942,6 +942,7 @@ class HTTP:
                 args = request.query
 
             if asyncio.iscoroutinefunction(callback):
+                rargs["request"] = request
                 if use_dictionary_unpacking is True:
                     return await callback(args, **rargs)
                 else:
